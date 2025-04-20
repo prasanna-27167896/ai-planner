@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Travel Planner</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="dark-toggle">
+      <label class="switch">
+        <input type="checkbox" id="darkToggle" />
+        <span class="slider round"></span>
+      </label>
+      <span class="mode-label">Dark Mode</span>
+    </div>
+
+    <div class="grid-container">
+      <div class="container">
+        <h1>AI Travel Planner</h1>
+        <div class="form-container">
+          <form id="travelForm">
+            <div class="form-group">
+              <label for="destination">Destination:</label>
+              <input
+                type="text"
+                id="destination"
+                required
+                placeholder="Enter your destination"
+              />
+            </div>
+            <div class="form-group">
+              <label for="startDate">Start Date:</label>
+              <input type="date" id="startDate" required />
+            </div>
+            <div class="form-group">
+              <label for="endDate">End Date:</label>
+              <input type="date" id="endDate" required />
+            </div>
+            <button type="submit">Generate Itinerary</button>
+          </form>
+        </div>
+        <div id="travel-loading" class="loading hidden">
+          <div class="spinner"></div>
+          <p>Generating your travel plan...</p>
+        </div>
+        <div id="travel-results" class="results hidden">
+          <h2>Your Travel Itinerary</h2>
+          <div class="table-scroll">
+            <table id="travelTable">
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Time</th>
+                  <th>Activity</th>
+                </tr>
+              </thead>
+              <tbody id="itineraryBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="food-suggestions">
+        <h1>AI Food Suggestions Planner</h1>
+
+        <form id="foodForm">
+          <div class="days-input">
+            <label for="from"
+              >From:
+              <select name="days" id="from" required>
+                <option disabled selected value="">Select a day</option>
+                <option value="monday">Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+                <option value="saturday">Saturday</option>
+                <option value="sunday">Sunday</option>
+              </select></label
+            >
+            <label for="to"
+              >To:
+              <select name="days" id="to" required>
+                <option disabled selected value="">Select a day</option>
+
+                <option value="monday">Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+                <option value="saturday">Saturday</option>
+                <option value="sunday">Sunday</option>
+              </select></label
+            >
+          </div>
+          <div class="food-input">
+            <label for="food-type"
+              >Food:
+              <select name="food" id="food-type" required>
+                <option disabled selected value="">Veg or Non Veg</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="non-vegetarian">Non Vegetarian</option>
+              </select></label
+            >
+            <label for="cuisine"
+              >Cuisine:
+              <select id="cuisine" name="cuisine" required>
+                <option disabled selected value="">Select the Cuisine</option>
+
+                <option value="indian">Indian</option>
+                <option value="chinese">Chinese</option>
+                <option value="american">American</option>
+              </select></label
+            >
+          </div>
+          <button type="submit">Suggest</button>
+        </form>
+        <div id="food-loading" class="loading hidden">
+          <div class="spinner"></div>
+          <p>Generating food suggestions...</p>
+        </div>
+        <div id="food-results" class="results hidden">
+          <h2>Food Suggestions</h2>
+          <div class="table-scroll">
+            <table id="foodTable">
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Breakfast</th>
+                  <th>Lunch</th>
+                  <th>Dinner</th>
+                </tr>
+              </thead>
+              <tbody id="suggestionBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
